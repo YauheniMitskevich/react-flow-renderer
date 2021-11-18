@@ -59,7 +59,7 @@ const FlowRenderer = ({
   const resetSelectedElements = useStoreActions((actions) => actions.resetSelectedElements);
   const nodesSelectionActive = useStoreState((state) => state.nodesSelectionActive);
 
-  const selectionKeyPressed = useKeyPress(selectionKeyCode);
+  const selectionKeyPressed = (typeof selectionKeyCode === 'boolean') ? selectionKeyCode : useKeyPress(selectionKeyCode);
 
   useGlobalKeyHandler({ onElementsRemove, deleteKeyCode, multiSelectionKeyCode });
 
